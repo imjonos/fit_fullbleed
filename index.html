@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+         <script src="./jquery.fit.fullbleed.js"></script>
+        
+        
+        
+    </head>
+    <body>
+        <div>Test</div>
+        <br>
+        <br>
+        <div id="container1" style="width:800px;height:600px;">
+            <img id="imgTest" src="http://environmentalgeography.files.wordpress.com/2010/02/nature_by_abhishekultimatum.jpg?q=45465d151556g12">
+        </div>
+        <br><br>
+        <div id="container2" style="width:800px;height:600px;overflow: hidden;">
+            <img id="imgTestFit" src="http://environmentalgeography.files.wordpress.com/2010/02/nature_by_abhishekultimatum.jpg?q=45465d151556g12">
+        </div>
+            
+        <script>
+            $("#imgTest").resizeImage("fullbleed");
+            $("#imgTestFit").resizeImage("fit");
+        </script>
+    </body>
+</html>
