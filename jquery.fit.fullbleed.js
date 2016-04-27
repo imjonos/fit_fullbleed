@@ -17,10 +17,21 @@
         },
         fit: function ( ) {
             var element = this;
+           
             methods.getImageSize(element, function (width, height) {
                 console.log($(element ).attr("id"), width + ":" + height);
+              
                 methods.resizeImgFit($(element).parent(), element,width, height);
+                
+                  $( window ).resize(function() {
+                       console.log("Resize",$(element ).attr("id"), width + ":" + height);
+                    methods.resizeImgFit($(element).parent(), element,width, height);
+                  });
+                
             });
+            
+            
+          
 
         },
         fullbleed: function (obj ) {
@@ -29,6 +40,12 @@
                 console.log($(element ).attr("id"),width + ":" + height);
 
                 methods.resizeImg($(element).parent(),element, width, height);
+                
+               $( window ).resize(function() {
+                    console.log("Resize",$(element ).attr("id"), width + ":" + height);
+                    methods.resizeImg($(element).parent(), element,width, height);
+               });
+                
             });
         },
         getImageSize: function (img, callback) {
