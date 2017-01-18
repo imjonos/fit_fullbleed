@@ -1,25 +1,46 @@
 /* 
- * NosSoftProg 2016
+ * Gr8Dev 2017
  * Fullbleed And Fit plugin
  * Eugeny Nosenko 
- * nos@nosxsoft.ru
- */
+ * info@gr8dev.com 
+*/
 
 
 (function ($) {
   
+    var params = {
+                           'beforeResize': function (image) {
    
+                           },
+                           'onComplete': function (image) {
+   
+                           }
+                                
+  
+                       }; 
     var methods = {
         init: function (options) {
             //INIT
-            
+            console.log(options);
+            params = $.extend(
+                       {
+                           'beforeResize': function (image) {
+   
+                           },
+                           'onComplete': function (image) {
+   
+                           }
+                                
+  
+                       }
+               , options);
             element = this;
         },
-        fit: function ( ) {
+        fit: function () {
             var element = this;
            
             methods.getImageSize(element, function (width, height) {
-                console.log($(element ).attr("id"), width + ":" + height);
+                console.log($(element ).attr("class"), width + ":" + height);
               
                 methods.resizeImgFit($(element).parent(), element,width, height);
                 
@@ -50,7 +71,7 @@
         },
         getImageSize: function (img, callback) {
             img = $(img);
-
+            params.beforeResize(img);
             var wait = setInterval(function () {
                 var w = img.width(),
                         h = img.height();
@@ -77,6 +98,7 @@
                 img.off('load', onLoad);
 
                 callback.apply(this, arguments);
+                params.onComplete(img);
             }
         },
         full_bleed: function (boxWidth, boxHeight, imgWidth, imgHeight)
