@@ -25,6 +25,8 @@ jQuery Images Fit Fullbleed plugin
 ------------------------------------------------------------
 2017-01-18 
 Добавленны callbacks
+------------------------------------------------------------
+<script>
 	var params = {
                      'beforeResize': function (image) {
    
@@ -38,5 +40,5 @@ jQuery Images Fit Fullbleed plugin
     $("#imgTestFit").resizeImage(params);
     $("#imgTestFit").resizeImage("fit");     
 
-   
+</script>
 
